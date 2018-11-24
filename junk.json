@@ -1,0 +1,121 @@
+{
+    "_readableState": {
+        "objectMode": false,
+        "highWaterMark": 16384,
+        "buffer": {
+            "head": null,
+            "tail": null,
+            "length": 0
+        },
+        "length": 0,
+        "pipes": null,
+        "pipesCount": 0,
+        "flowing": true,
+        "ended": false,
+        "endEmitted": false,
+        "reading": false,
+        "sync": true,
+        "needReadable": false,
+        "emittedReadable": false,
+        "readableListening": false,
+        "resumeScheduled": true,
+        "emitClose": true,
+        "autoDestroy": false,
+        "destroyed": false,
+        "defaultEncoding": "utf8",
+        "awaitDrain": 0,
+        "readingMore": true,
+        "decoder": null,
+        "encoding": null
+    },
+    "readable": true,
+    "_events": {},
+    "_eventsCount": 1,
+    "socket": {
+        "_events": {},
+        "_eventsCount": 0,
+        "writable": true,
+        "readable": true,
+        "destroyed": false,
+        "connecting": false,
+        "totalDelayMs": 0,
+        "timeoutMs": null,
+        "authorized": true
+    },
+    "connection": {
+        "_events": {},
+        "_eventsCount": 0,
+        "authorized": true
+    },
+    "httpVersionMajor": null,
+    "httpVersionMinor": null,
+    "httpVersion": null,
+    "complete": false,
+    "headers": {
+        "content-type": "text/html"
+    },
+    "rawHeaders": [
+        "content-type",
+        "text/html"
+    ],
+    "trailers": {},
+    "rawTrailers": [],
+    "aborted": false,
+    "upgrade": null,
+    "url": "",
+    "method": null,
+    "statusCode": 200,
+    "statusMessage": null,
+    "client": {
+        "_events": {},
+        "_eventsCount": 0,
+        "authorized": true
+    },
+    "_consuming": false,
+    "_dumped": false,
+    "req": {
+        "_events": {},
+        "_eventsCount": 3,
+        "output": [],
+        "outputEncodings": [],
+        "outputCallbacks": [],
+        "outputSize": 0,
+        "writable": true,
+        "_last": false,
+        "chunkedEncoding": false,
+        "shouldKeepAlive": true,
+        "useChunkedEncodingByDefault": true,
+        "sendDate": false,
+        "_removedConnection": false,
+        "_removedContLen": false,
+        "_removedTE": false,
+        "_contentLength": null,
+        "_hasBody": true,
+        "_trailer": "",
+        "finished": false,
+        "_headerSent": false,
+        "socket": {
+            "_events": {},
+            "_eventsCount": 0,
+            "writable": true,
+            "readable": true,
+            "destroyed": false,
+            "connecting": false,
+            "totalDelayMs": 0,
+            "timeoutMs": null,
+            "authorized": true
+        },
+        "connection": {
+            "_events": {},
+            "_eventsCount": 0
+        },
+        "_header": null,
+        "path": "/some.html",
+        "_removedHeader": {},
+        "headers": {
+            "accept-encoding": "gzip, deflate",
+            "user-agent": "node-superagent/4.0.0",
+            "host": "server"
+        }
+    }
+}

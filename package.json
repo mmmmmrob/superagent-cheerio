@@ -1,0 +1,38 @@
+{
+    "name": "superagent-cheerio",
+    "version": "1.0.0",
+    "description": "Simple extension for SuperAgent that adds cheerio to html responses",
+    "scripts": {
+        "test": "jest"
+    },
+    "keywords": [
+        "http",
+        "ajax",
+        "request",
+        "agent",
+        "superagent",
+        "supertest",
+        "cheerio"
+    ],
+    "license": "MIT",
+    "author": "Rob Styles <rob@styles.to>",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/visionmedia/superagent.git"
+    },
+    "peerDependencies": {
+        "cheerio": "1.x",
+        "superagent": "4.x"
+    },
+    "devDependencies": {
+        "jest": "^23.6.0",
+        "nock": "^10.0.2"
+    },
+    "engines": {
+        "node": ">= 8.0"
+    },
+    "dependencies": {
+        "cheerio": "^1.0.0-rc.2",
+        "superagent": "^4.0.0"
+    }
+}
