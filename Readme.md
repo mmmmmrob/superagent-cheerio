@@ -1,52 +1,46 @@
-superagent-cheerio is a small library that plugs together [SuperAgent](https://www.npmjs.com/package/superagent) and [cheerio](https://www.npmjs.com/package/cheerio).
+superagent-cheerio is a small plugin that connects together [SuperAgent](https://www.npmjs.com/package/superagent) and [cheerio](https://www.npmjs.com/package/cheerio).
 
-It comes from using [SuperTest](https://www.npmjs.com/package/supertest) for testing, and wanting easy access to cheerio for testing html responses.
+It came from using [SuperTest](https://www.npmjs.com/package/supertest) for testing, and wanting easy access to cheerio for testing html responses.
 
 ## Installation
 
+SuperAgent and cheerio are peer dependencies, you need to add them yourself.
+
 ```
-$ npm install superagent-cheerio
+$ npm install superagent cheerio superagent-cheerio
 ```
 
+## Usage for a single request
+
 ```js
-const request
+const request = require('superagent')
+const superagentCheerio = require('superagent-cheerio')
 const res = await request
-  .post('/api/pet')
-  .send({ name: 'Manny', species: 'cat' }) // sends a JSON post body
-  .set('X-API-Key', 'foobar')
-  .set('accept', 'json');
+  .get('/foo')
+  .use(supertestCheerio)
+
+res.$('h1').text()
 ```
 
-
-## Plugins
-
-SuperAgent is easily extended via plugins.
+## Usage for lots of requests
 
 ```js
-const nocache = require('superagent-no-cache');
-const request = require('superagent');
-const prefix = require('superagent-prefix')('/static');
+const request = require('superagent')
+const superagentCheerio = require('superagent-cheerio')
+const agent = request.agent().use(superagentCheerio)
+const res = await agent.get('/foo')
 
-request
-  .get('/some-url')
-  .query({ action: 'edit', city: 'London' }) // query string
-  .use(prefix) // Prefixes *only* this request
-  .use(nocache) // Prevents caching of *only* this request
-  .end((err, res) => {
-    // Do something
-  });
+res.$('h1').text()
 ```
 
-Please prefix your plugin with `superagent-*` so that it can easily be found by others.
-
-## Running node tests
+## Running tests
 
 Install dependencies:
 
 ```shell
 $ npm install
 ```
-Run tests
+Run tests:
 
 ```shell
 $ npm test
