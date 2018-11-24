@@ -20,35 +20,34 @@ describe('superagent-cheerio', () => {
 
   it('should not add cheerio to html responses by default', () => {
     return request('http://server/some.html').then(res => {
-      expect(res.body).toEqual({})
+      expect(res.$).toBeUndefined()
     })
   })
 
   it('should add cheerio to html responses when asked to', () => {
     return request('http://server/some.html')
-      .then(supertestCheerio)
+      .use(supertestCheerio)
       .then(res => {
-        expect(res.body).toBeDefined()
-        expect(res.body).not.toBeNull()
-        expect(res.body).toBeInstanceOf(Function)
-        expect(res.body('title')).toBeInstanceOf(cheerio)
-        expect(res.body('title').text()).toBe('foo')
-        expect(res.body('body').text()).toBe('bar')
+        expect(res.$).toBeDefined()
+        expect(res.$).not.toBeNull()
+        expect(res.$).toBeInstanceOf(Function)
+        expect(res.$('title')).toBeInstanceOf(cheerio)
+        expect(res.$('title').text()).toBe('foo')
+        expect(res.$('body').text()).toBe('bar')
       })
   })
 
   it('should not add cheerio to other responses', () => {
     return request('http://server/some.json')
-      .then(supertestCheerio)
+      .use(supertestCheerio)
       .then(res => {
-        expect(res.body).not.toBeInstanceOf(Function)
-        expect(res.body).toEqual({ foo: 'bar' })
+        expect(res.$).toBeUndefined()
       })
   })
 
   it('should not have made cheerio the default', () => {
     return request('http://server/some.html').then(res => {
-      expect(res.body).toEqual({})
+      expect(res.$).toBeUndefined()
     })
   })
 })
