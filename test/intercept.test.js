@@ -7,7 +7,7 @@ supertestCheerio(request)
 const nock = require('nock')
 
 describe('superagent-cheerio', () => {
-  it('should add cheerio to a html response', () => {
+  it('should add cheerio to html responses', () => {
     nock('http://server')
       .get('/some.html')
       .reply(200, '<html><title>foo</title><body>bar</body></html>', {
