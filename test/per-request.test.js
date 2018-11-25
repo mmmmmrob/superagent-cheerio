@@ -13,6 +13,11 @@ describe('superagent-cheerio', () => {
       .reply(200, '<html><title>foo</title><body>bar</body></html>', {
         'content-type': 'text/html'
       })
+    nock('http://another-server')
+      .get('/some.html')
+      .reply(200, '<html><title>foo</title><body>bar</body></html>', {
+        'content-type': 'text/html; charset=ISO-8859-1'
+      })
     nock('http://server').get('/some.json').reply(200, '{"foo": "bar"}', {
       'content-type': 'application/json'
     })
@@ -26,6 +31,19 @@ describe('superagent-cheerio', () => {
 
   it('should add cheerio to html responses when asked to', () => {
     return request('http://server/some.html')
+      .use(supertestCheerio)
+      .then(res => {
+        expect(res.$).toBeDefined()
+        expect(res.$).not.toBeNull()
+        expect(res.$).toBeInstanceOf(Function)
+        expect(res.$('title')).toBeInstanceOf(cheerio)
+        expect(res.$('title').text()).toBe('foo')
+        expect(res.$('body').text()).toBe('bar')
+      })
+  })
+
+  it('should add cheerio to html (and charset) responses when asked to', () => {
+    return request('http://another-server/some.html')
       .use(supertestCheerio)
       .then(res => {
         expect(res.$).toBeDefined()
