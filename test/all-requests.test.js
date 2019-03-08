@@ -2,7 +2,7 @@
 
 const supertestCheerio = require('../lib/index.js')
 const request = require('superagent')
-const agent = request.agent().use(supertestCheerio)
+const agent = request.agent().use(supertestCheerio())
 const cheerio = require('cheerio')
 const nock = require('nock')
 
