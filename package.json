@@ -1,6 +1,6 @@
 {
     "name": "superagent-cheerio",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "Simple extension for SuperAgent that adds cheerio to html responses",
     "scripts": {
         "test": "jest"
